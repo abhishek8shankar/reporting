@@ -15,7 +15,7 @@ ARG container_user_uid=1001
 ARG container_user_gid=1001
 
 RUN confluent-hub install --no-prompt confluentinc/kafka-connect-elasticsearch:11.1.3 \
-&& groupadd -r ${container_user_group} --gid ${container_user_gid} \
+&& groupadd -r ${container_user_group} --gid ${container_user_gid} || true \
 && useradd -r -g ${container_user_group} --uid ${container_user_uid} ${container_user} \
 && chown -R ${container_user}:${container_user} /home/${container_user}
 
