@@ -11,7 +11,6 @@ ADD ./target/debezium-core-*.jar /usr/share/java/my_transforms
 WORKDIR /home/${container_user}
 
 RUN confluent-hub install --no-prompt confluentinc/kafka-connect-elasticsearch:11.1.3 \
-&& groupadd -r ${container_user_group} --gid ${container_user_gid} \
 && useradd -r -g ${container_user_group} --uid ${container_user_uid} ${container_user} \
 && chown -R ${container_user}:${container_user} /home/${container_user}
 
