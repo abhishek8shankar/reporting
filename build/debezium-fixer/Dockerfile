@@ -22,6 +22,8 @@ RUN apk add curl bash vim jq \
 USER ${container_user}
 WORKDIR /home/${container_user}
 
+ADD --chown=${container_user}:${container_user_group} docker-entrypoint.sh .
+
 USER ${container_user_uid}:${container_user_gid}
 
 CMD ["./docker-entrypoint.sh"]
