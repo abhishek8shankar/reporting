@@ -24,6 +24,4 @@ RUN mkdir /my_spark_jobs \
 && pip3 install elasticsearch \
 && pip3 install pandas
 
-USER 1001
-
 USER ${container_user_uid}:${container_user_gid}
