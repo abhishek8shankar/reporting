@@ -26,7 +26,6 @@ RUN addgroup -g ${container_user_gid} ${container_user_group} || true && \
     adduser -D -u ${container_user_uid} -G ${container_user_group} ${container_user} || true && \
     chown -R ${container_user}:${container_user} /home/${container_user}
 
-USER ${container_user}:${container_user_group}
 USER ${container_user_uid}:${container_user_gid}
 
 CMD ["/docker-entrypoint.sh"]
